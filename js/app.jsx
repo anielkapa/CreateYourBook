@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
           <div>
 						<Jumbotron>
 							 <h1>Hello, notebook!</h1>
-							 <p>This is a simple product config app for creating bespoke notebook and inquiry form.</p>
+							 <p>This is a simple product config app for creating bespoke notebook and inquiry form. Enjoy!</p>
 						</Jumbotron>
 				</div>
         );

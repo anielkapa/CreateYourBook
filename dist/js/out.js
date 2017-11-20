@@ -13474,7 +13474,7 @@ document.addEventListener('DOMContentLoaded', function () {
 												_react2.default.createElement(
 														'p',
 														null,
-														'This is a simple product config app for creating bespoke notebook and inquiry form.'
+														'This is a simple product config app for creating bespoke notebook and inquiry form. Enjoy!'
 												)
 										)
 								);
