@@ -1,4 +1,6 @@
 # Create You Book
+in progress...
+this is my first React App - final project during Coders Lab course
+### Using ReactJS & React-Bootstrap
 
-### Przygotowanie
-> Stwórz w pełni działające środowisko,
+more soon...
