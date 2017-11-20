@@ -1,0 +1,54 @@
+* {
+  margin: 0 auto;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/Raleway-Regular.ttf');
+  src: url('fonts/Raleway-Regular.ttf') format('embedded-opentype'), url('fonts/Raleway-Regular.ttf') format('woff'), url('fonts/Raleway-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.main {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: 0.5px solid lightgrey;
+}
+
+.hardcover_pu {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 0.5px solid red;
+}
+
+.hardcover_paper {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  border: 0.5px solid blue;
+}
+.hardcover_textile {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border: 0.5px solid green;
+}
+
+.half-rounded {
+  border-radius: 0px 15px 15px 0px;
+}
+
+.straight {
+  border-radius: 0px 0px 0px 0px;
+}
