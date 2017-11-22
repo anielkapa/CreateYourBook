@@ -17,6 +17,7 @@
     "react": "^15.4.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^15.4.0",
+    "react-flexbox-grid": "^2.0.0",
     "react-router": "^3.0.3",
     "webpack": "^3.7.1"
   },
@@ -28,6 +29,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
+    "react": "^15.4.0",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
     "webpack": "3.7.1",

@@ -41,13 +41,20 @@ class QuoteFormTemp extends Component {
      return null
    }
   }
+  showTopic = (element) =>{
+    if (this.state.optionStage === 6){
+      return (<th>Your Book Summary</th>);
+    }else{
+      return null;
+    }
+  }
   render(){
     return(
       <div>
         <Table>
           <thead>
             <tr>
-              <th>Your Book Summary</th>
+              {this.showTopic()}
             </tr>
           </thead>
           <tbody>

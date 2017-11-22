@@ -3,35 +3,43 @@ import ReactDOM from 'react-dom';
 import Navbar from './navbar.jsx';
 import Book from './book.jsx';
 import Choose from './choose.jsx';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 
 class Body extends Component {
   render(){
     return(
-      <div>
-        <Choose
-          value={this.props.value}
-          onChange={this.props.onChange}
-          onClick={this.props.onClick}
-          optionStage={this.props.optionStage}
-          type={this.props.type}
-          update={this.props.update}
-          choosen={this.props.choosen}/>
-        <Book
-          value={this.props.value}
-          onChange={this.props.onChange}
-          styleClass={this.props.styleClass}
-          choosen={this.props.choosen}
+      <Grid fluid>
+        <Row className="show-grid" >
+          <Choose
+            value={this.props.value}
+            onChange={this.props.onChange}
+            onClick={this.props.onClick}
+            optionStage={this.props.optionStage}
+            type={this.props.type}
+            update={this.props.update}
+            choosen={this.props.choosen}/>
+        </Row>
+        <Row className="show-grid" around="xs">
+          <Book
+            value={this.props.value}
+            onChange={this.props.onChange}
+            styleClass={this.props.styleClass}
+            choosen={this.props.choosen}
 
-          />
-        <Navbar
-          value={this.props.value}
-          onChange={this.props.onChange}
-          onClick={this.props.onClick}
-          quoteFormArr={this.props.quoteFormArr}
-          optionStage={this.props.optionStage}
-          choosen={this.props.choosen}
-          reset={this.props.reset}/>
-      </div>
+            />
+        </Row>
+        <Row className="show-grid" around="xs">
+          <Navbar
+            value={this.props.value}
+            onChange={this.props.onChange}
+            onClick={this.props.onClick}
+            quoteFormArr={this.props.quoteFormArr}
+            optionStage={this.props.optionStage}
+            choosen={this.props.choosen}
+            reset={this.props.reset}/>
+        </Row>
+      </Grid>
     );
   }
 }

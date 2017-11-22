@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Well from 'react-bootstrap/lib/Well';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class Book extends Component {
   constructor(props){
@@ -15,10 +16,17 @@ class Book extends Component {
   }
   render(){
     return(
-      <section>
-        <Well bsSize="large"><h2>Look I'm {this.props.value} notebook!</h2></Well>
-
-        <div className={this.state.styleclass}></div>
+      <section style={{width:"100vw"}}>
+        <Row className="show-grid">
+          <Col xs={12} sm={6} md={6} lg={6}>
+            <Well bsSize="large" >
+              <h2>Look I'm {this.props.value} notebook!</h2>
+            </Well>
+          </Col>
+          <Col xs={12} sm={6} md={6} lg={6}>
+            <div className={this.state.styleclass}></div>
+          </Col>
+        </Row>
       </section>
     );
   }
