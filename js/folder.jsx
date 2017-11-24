@@ -5,6 +5,8 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Button from 'react-bootstrap/lib/Button';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 
 class Formular extends Component {
   constructor(props){
@@ -14,9 +16,14 @@ class Formular extends Component {
       name: '',
       email: '',
       quantity: [],
-      loading: false,
+      choosen: {},
       errors: {}
     };
+  }
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      choosen: nextProps.choosen
+    })
   }
   quantityOption =() =>{
     let quantity = [100, 250, 500, 1000, 1500, 2500, 5000, 7500, 10000, 'other'];
@@ -44,7 +51,7 @@ class Formular extends Component {
       this.setState({quantity: value})
     }
   }
-  validate = () => {
+  validate = (event) => {
     let errors = {};
     if(this.state.company.length === 0 ) {
       errors.company = "Company name is required";
@@ -69,47 +76,73 @@ class Formular extends Component {
       });
       return;
     }
+    if (Object.keys(errors).length ===0){
+      this.setState({
+        errors: ""
+      });
+      return this.createEmailForm();
+    }
+  }
+  createEmailForm =()=>{
+    let valuesOfChoosen = Object.values(this.state.choosen);
+    let keysOfChoosen = Object.key(this.state.choosen);
+      let toEmail = keysOfChoosen.map((element,index)=>{
+        return (<tr key={index}><td>{element}</td><td>{valuesOfChoosen[index]}</td></tr>)
+      });
+        return toEmail;
   }
   render(){
     return(
-      <Form inline onSubmit={this.onSubmit}>
-        <FormGroup controlId="formInlineName">
-          <ControlLabel>Company Name</ControlLabel>
-          {' '}
-          <FormControl type="text" name="company" value={this.state.company} placeholder="type company name" onChange={this.handleComanyChange}/>
-          <span className="help-block">{this.state.errors.company}</span>
-      </FormGroup>
-        {' '}
-        <FormGroup controlId="formInlineName">
-          <ControlLabel>Your Name and Surname</ControlLabel>
-          {' '}
-          <FormControl type="text" name="name" value={this.state.name} placeholder="type name and surname" onChange={this.handleNameChange}/>
-          <span className="help-block">{this.state.errors.name}</span>
-      </FormGroup>
-        {' '}
-        <FormGroup controlId="formInlineEmail">
-          <ControlLabel>Email</ControlLabel>
-          {' '}
-          <FormControl type="email" name="email" value={this.state.email} placeholder="jane.doe@example.com" onChange={this.handleEmailChange}/>
-          <span className="help-block">{this.state.errors.email}</span>
-      </FormGroup>
-        {' '}
-        <FormGroup controlId="formControlsSelectMultiple">
-          <ControlLabel>Quantity</ControlLabel>
-          <FormControl componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>
-            <option value="select">select (multiple)</option>
-            {this.quantityOption()}
-          </FormControl>
-          <span className="help-block">{this.state.errors.quantity}</span>
-        </FormGroup>
-      {' '}
-        <Button type="submit"  onClick={this.handleSubmit}>
-          Send Your inquiry!
-        </Button>
-        {' '}
-  </Form>
+      <Row className="show-grid" between="xs">
+      <Form inline onSubmit={this.onSubmit} method="post" action="/contact">
+        <Row className="show-grid">
+          <Col xs={12} sm={8} md={6} lg={6}>
+            <FormGroup controlId="formInlineName">
+              <ControlLabel >Company Name</ControlLabel>
+              {' '}
+              <FormControl type="text" name="company" value={this.state.company} placeholder="type company name" onChange={this.handleComanyChange}/>
+              <span className="help-block">{this.state.errors.company}</span>
+            </FormGroup>
+            {' '}
+            <FormGroup controlId="formInlineName">
+              <ControlLabel >Your Name and Surname</ControlLabel>
+              {' '}
+              <FormControl type="text" name="name" value={this.state.name} placeholder="type name and surname" onChange={this.handleNameChange}/>
+              <span className="help-block">{this.state.errors.name}</span>
+            </FormGroup>
+            {' '}
+            <FormGroup controlId="formInlineEmail">
+              <ControlLabel >Email</ControlLabel>
+              {' '}
+              <FormControl type="email" name="email" value={this.state.email} placeholder="jane.doe@example.com" onChange={this.handleEmailChange}/>
+              <span className="help-block">{this.state.errors.email}</span>
+            </FormGroup>
+            {' '}
+          </Col>
+          <Col xs={12} sm={8} md={6} lg={6}>
+            <FormGroup controlId="formControlsSelectMultiple">
+              <ControlLabel >Quantity</ControlLabel>
+              <FormControl componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>
+                <option value="select">select (multiple)</option>
+                {this.quantityOption()}
+              </FormControl>
+              <span className="help-block">{this.state.errors.quantity}</span>
+            </FormGroup>
+          </Col>
+        </Row>
+        <Row className="show-grid">
+          <Col  xs={8} sm={6} md={2} lg={2}>
+            {' '}
+              <Button type="submit"  onClick={this.handleSubmit}>
+                Send Your inquiry!
+              </Button>
+              {' '}
+          </Col>
+        </Row>
+      </Form>
+    </Row>
     );
   }
 }
 
-export default Formular;
+export default Formular ;

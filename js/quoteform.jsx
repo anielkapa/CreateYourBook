@@ -30,7 +30,6 @@ class QuoteFormTemp extends Component {
   }
   createForm = (element) =>{
     let valuesOfChoosen = Object.values(this.state.choosen);
-  //  console.log(valuesOfChoosen)
     if (this.state.optionStage === 6){
       let lilist = this.state.positionKeys;
       let torender = lilist.map((element,index)=>{

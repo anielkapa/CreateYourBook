@@ -9,7 +9,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 class Body extends Component {
   render(){
     return(
-      <Grid fluid>
+      <Grid fluid >
         <Row className="show-grid" >
           <Choose
             value={this.props.value}
@@ -20,16 +20,17 @@ class Body extends Component {
             update={this.props.update}
             choosen={this.props.choosen}/>
         </Row>
-        <Row className="show-grid" around="xs">
-          <Book
-            value={this.props.value}
-            onChange={this.props.onChange}
-            styleClass={this.props.styleClass}
-            choosen={this.props.choosen}
-
-            />
+        <Row className="show-grid" around="xs" >
+          <Col >
+            <Book
+              value={this.props.value}
+              onChange={this.props.onChange}
+              styleClass={this.props.styleClass}
+              choosen={this.props.choosen}
+              />
+          </Col>
         </Row>
-        <Row className="show-grid" around="xs">
+        <Row className="show-grid" between="xs">
           <Navbar
             value={this.props.value}
             onChange={this.props.onChange}

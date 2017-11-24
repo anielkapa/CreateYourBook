@@ -30,14 +30,15 @@ class Navbar extends Component {
       return (
         <Col xs={12} sm={12} md={12} lg={10}>
           <Formular
-            optionStage={this.props.optionStage}/>
+            optionStage={this.props.optionStage}
+            choosen={this.props.choosen}/>
         </Col> );
     }
   }
   render(){
     return(
       <aside>
-        <Row className="show-grid">
+        <Row className="show-grid" middle="xs">
         <QuoteFormTemp
             value={this.props.value}
             optionStage={this.props.optionStage}
@@ -45,7 +46,7 @@ class Navbar extends Component {
             choosen={this.props.choosen}/>
 
         </Row>
-        <Row className="show-grid">
+        <Row className="show-grid" middle="xs"  center="xs">
           {' '}
             {this.chooseButtons()}
           {' '}

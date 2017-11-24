@@ -17,9 +17,9 @@ class Book extends Component {
   render(){
     return(
       <section style={{width:"100vw"}}>
-        <Row className="show-grid">
+        <Row className="show-grid" middle="xs">
           <Col xs={12} sm={6} md={6} lg={6}>
-            <Well bsSize="large" >
+            <Well bsSize="large" className="book-section-style">
               <h2>Look I'm {this.props.value} notebook!</h2>
             </Well>
           </Col>
