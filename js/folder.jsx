@@ -96,7 +96,7 @@ class Formular extends Component {
       <Row className="show-grid" between="xs">
       <Form inline onSubmit={this.onSubmit} method="post" action="/contact">
         <Row className="show-grid">
-          <Col xs={12} sm={8} md={6} lg={6}>
+          <Col xs={12} sm={6} md={4} lg={4}>
             <FormGroup controlId="formInlineName">
               <ControlLabel >Company Name</ControlLabel>
               {' '}
@@ -112,26 +112,23 @@ class Formular extends Component {
             </FormGroup>
             {' '}
             <FormGroup controlId="formInlineEmail">
-              <ControlLabel >Email</ControlLabel>
+              <ControlLabel >Email Address</ControlLabel>
               {' '}
               <FormControl type="email" name="email" value={this.state.email} placeholder="jane.doe@example.com" onChange={this.handleEmailChange}/>
               <span className="help-block">{this.state.errors.email}</span>
             </FormGroup>
             {' '}
           </Col>
-          <Col xs={12} sm={8} md={6} lg={6}>
+          <Col xs={12} sm={6} md={4} lg={4}>
             <FormGroup controlId="formControlsSelectMultiple">
-              <ControlLabel >Quantity</ControlLabel>
+              <ControlLabel >Quantity:how many notebooks?</ControlLabel>
               <FormControl componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>
                 <option value="select">select (multiple)</option>
                 {this.quantityOption()}
               </FormControl>
               <span className="help-block">{this.state.errors.quantity}</span>
             </FormGroup>
-          </Col>
-        </Row>
-        <Row className="show-grid">
-          <Col  xs={8} sm={6} md={2} lg={2}>
+
             {' '}
               <Button type="submit"  onClick={this.handleSubmit}>
                 Send Your inquiry!

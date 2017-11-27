@@ -16,15 +16,15 @@ class Book extends Component {
   }
   render(){
     return(
-      <section style={{width:"100vw"}}>
+      <section>
         <Row className="show-grid" middle="xs">
-          <Col xs={12} sm={6} md={6} lg={6}>
-            <Well bsSize="large" className="book-section-style">
-              <h2>Look I'm {this.props.value} notebook!</h2>
-            </Well>
-          </Col>
-          <Col xs={12} sm={6} md={6} lg={6}>
+          <Col xs={6} sm={4} md={4} lg={4}>
             <div className={this.state.styleclass}></div>
+          </Col>
+          <Col xs={6} sm={8} md={8} lg={8} className="end-comment">
+            <div style={{textAlign:"center"}}>
+              <h3>Look I'm {this.props.value} notebook!</h3>
+            </div>
           </Col>
         </Row>
       </section>

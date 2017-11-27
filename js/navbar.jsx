@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import QuoteFormTemp from './quoteform.jsx';
 import Formular from './folder.jsx';
-import Button from 'react-bootstrap/lib/Button';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class Navbar extends Component {
@@ -21,14 +20,14 @@ class Navbar extends Component {
   chooseButtons = () =>{
     if (this.state.optionStage < 6){
       return (
-        <Col xs={8} sm={6} md={2} lg={2}>
-          <Button
+        <Col xs={8} sm={6} md={2} lg={2} xsOffset={0} >
+          <button className="next-button"
             onClick={this.props.onClick}>NEXT
-          </Button>
+          </button>
         </Col>);
     }else{
       return (
-        <Col xs={12} sm={12} md={12} lg={10}>
+        <Col xs={12} sm={6} md={8} lg={8}>
           <Formular
             optionStage={this.props.optionStage}
             choosen={this.props.choosen}/>
@@ -37,21 +36,22 @@ class Navbar extends Component {
   }
   render(){
     return(
-      <aside>
+      <aside >
         <Row className="show-grid" middle="xs">
-        <QuoteFormTemp
-            value={this.props.value}
-            optionStage={this.props.optionStage}
-            onClick={this.props.onClick}
-            choosen={this.props.choosen}/>
-
-        </Row>
-        <Row className="show-grid" middle="xs"  center="xs">
           {' '}
             {this.chooseButtons()}
           {' '}
-          <Col xs={8} sm={6} md={2} lg={2}>
-            <Button bsStyle="danger" onClick={this.props.reset}>Reset</Button>
+          <Col xs={12} sm={6} md={4} lg={4}>
+            <QuoteFormTemp
+                value={this.props.value}
+                optionStage={this.props.optionStage}
+                onClick={this.props.onClick}
+                choosen={this.props.choosen}/>
+          </Col>
+        </Row>
+        <Row className="show-grid" middle="xs" >
+          <Col xs={12} sm={12} md={12} lg={12} xsOffset={0} >
+            <button className='reset-button' onClick={this.props.reset}>RESET</button>
           </Col>
         </Row>
       </aside>

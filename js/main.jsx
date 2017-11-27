@@ -10,7 +10,8 @@ class Body extends Component {
   render(){
     return(
       <Grid fluid >
-        <Row className="show-grid" >
+        <Row className="show-grid" around="xs">
+          <Col xs={12} sm={4} md={4} lg={4}>
           <Choose
             value={this.props.value}
             onChange={this.props.onChange}
@@ -19,9 +20,8 @@ class Body extends Component {
             type={this.props.type}
             update={this.props.update}
             choosen={this.props.choosen}/>
-        </Row>
-        <Row className="show-grid" around="xs" >
-          <Col >
+          </Col>
+          <Col xs={12} sm={8} md={8} lg={8}>
             <Book
               value={this.props.value}
               onChange={this.props.onChange}
@@ -29,8 +29,7 @@ class Body extends Component {
               choosen={this.props.choosen}
               />
           </Col>
-        </Row>
-        <Row className="show-grid" between="xs">
+          <Col xs={12} sm={12} md={12} lg={12} className="middle-section">
           <Navbar
             value={this.props.value}
             onChange={this.props.onChange}
@@ -39,6 +38,7 @@ class Body extends Component {
             optionStage={this.props.optionStage}
             choosen={this.props.choosen}
             reset={this.props.reset}/>
+          </Col>
         </Row>
       </Grid>
     );
@@ -57,7 +57,7 @@ class Footer extends Component {
   }
   render(){
     return(
-      <div>
+      <div style={{margin:"20px"}}>
         stage: {this.state.optionStage} of 6
       </div>
     );

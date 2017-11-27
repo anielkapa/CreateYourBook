@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function(){
         return(
           <div>
 						<Jumbotron className="header-style">
-							 <h1 style={{margin: "10px"}}>Hello, notebook!</h1>
-							 <p style={{margin: "10px"}}>This is a simple product config app for creating bespoke notebook and inquiry form. Enjoy!</p>
+							 <h1 style={{margin: "30px"}}>Hello, notebook!</h1>
+							 <p style={{margin: "10px"}} className="orange-color">This is a simple product config app for creating bespoke notebook and inquiry form. Enjoy!</p>
 						</Jumbotron>
 				</div>
         );
