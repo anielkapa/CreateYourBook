@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
-
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
 class Choose extends Component {
@@ -36,15 +36,23 @@ class Choose extends Component {
       return(
         <section>
           <FormGroup controlId="formControlsSelect">
-             <ControlLabel>{stageTitletoShow}:</ControlLabel>
-             <FormControl componentClass="select" placeholder="select" value={this.props.value} onChange={this.props.onChange}>
+             <Col xs={10} sm={10} md={12} lg={12}>
+               <ControlLabel>{stageTitletoShow}:</ControlLabel>
+             </Col>
+             <Col xs={10} sm={10} md={12} lg={12}>
+               <FormControl componentClass="select" placeholder="select" value={this.props.value} onChange={this.props.onChange}>
                {optionsToShow}
-             </FormControl>
+                </FormControl>
+              </Col>
            </FormGroup>
       </section>
       );
     }else{
-      return null;
+      return (
+        <Col xs={12} sm={12} md={12} lg={12} className="end-comment" style={{textAlign:"center"}}>
+          <h2 style={{margin:"5px"}}>Voilà!</h2>
+          <p style={{margin:"5px"}}>Just fill out the form and we will calculate none-binding offer for You!</p>
+        </Col>);
     }
   }
   render(){

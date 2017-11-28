@@ -3,35 +3,45 @@ import ReactDOM from 'react-dom';
 import Navbar from './navbar.jsx';
 import Book from './book.jsx';
 import Choose from './choose.jsx';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 
 class Body extends Component {
   render(){
     return(
-      <div>
-        <Choose
-          value={this.props.value}
-          onChange={this.props.onChange}
-          onClick={this.props.onClick}
-          optionStage={this.props.optionStage}
-          type={this.props.type}
-          update={this.props.update}
-          choosen={this.props.choosen}/>
-        <Book
-          value={this.props.value}
-          onChange={this.props.onChange}
-          styleClass={this.props.styleClass}
-          choosen={this.props.choosen}
+      <Grid fluid >
+        <Row className="show-grid" around="xs" middle="xs">
+          <Col xs={12} sm={12} md={8} lg={8}>
+            <Book
+              value={this.props.value}
+              onChange={this.props.onChange}
+              styleClass={this.props.styleClass}
+              choosen={this.props.choosen}
+              />
+          </Col>
+          <Col xs={12} sm={12} md={4} lg={4}>
+          <Choose
+            value={this.props.value}
+            onChange={this.props.onChange}
+            onClick={this.props.onClick}
+            optionStage={this.props.optionStage}
+            type={this.props.type}
+            update={this.props.update}
+            choosen={this.props.choosen}/>
+          </Col>
 
-          />
-        <Navbar
-          value={this.props.value}
-          onChange={this.props.onChange}
-          onClick={this.props.onClick}
-          quoteFormArr={this.props.quoteFormArr}
-          optionStage={this.props.optionStage}
-          choosen={this.props.choosen}
-          reset={this.props.reset}/>
-      </div>
+          <Col xs={12} sm={12} md={12} lg={12} className="middle-section">
+          <Navbar
+            value={this.props.value}
+            onChange={this.props.onChange}
+            onClick={this.props.onClick}
+            quoteFormArr={this.props.quoteFormArr}
+            optionStage={this.props.optionStage}
+            choosen={this.props.choosen}
+            reset={this.props.reset}/>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
@@ -48,7 +58,7 @@ class Footer extends Component {
   }
   render(){
     return(
-      <div>
+      <div style={{margin:"20px"}}>
         stage: {this.state.optionStage} of 6
       </div>
     );

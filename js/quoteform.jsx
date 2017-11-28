@@ -30,7 +30,6 @@ class QuoteFormTemp extends Component {
   }
   createForm = (element) =>{
     let valuesOfChoosen = Object.values(this.state.choosen);
-  //  console.log(valuesOfChoosen)
     if (this.state.optionStage === 6){
       let lilist = this.state.positionKeys;
       let torender = lilist.map((element,index)=>{
@@ -41,13 +40,20 @@ class QuoteFormTemp extends Component {
      return null
    }
   }
+  showTopic = (element) =>{
+    if (this.state.optionStage === 6){
+      return (<th>Your Book Summary</th>);
+    }else{
+      return null;
+    }
+  }
   render(){
     return(
       <div>
         <Table>
           <thead>
             <tr>
-              <th>Your Book Summary</th>
+              {this.showTopic()}
             </tr>
           </thead>
           <tbody>
