@@ -20,14 +20,14 @@ class Navbar extends Component {
   chooseButtons = () =>{
     if (this.state.optionStage < 6){
       return (
-        <Col xs={8} sm={6} md={2} lg={2} xsOffset={0} >
+        <Col xs={8} sm={8} md={2} lg={2} xsOffset={10} >
           <button className="next-button"
             onClick={this.props.onClick}>NEXT
           </button>
         </Col>);
     }else{
       return (
-        <Col xs={12} sm={6} md={8} lg={8}>
+        <Col xs={12} sm={12} md={8} lg={8}>
           <Formular
             optionStage={this.props.optionStage}
             choosen={this.props.choosen}/>
@@ -41,7 +41,7 @@ class Navbar extends Component {
           {' '}
             {this.chooseButtons()}
           {' '}
-          <Col xs={12} sm={6} md={4} lg={4}>
+          <Col xs={12} sm={12} md={4} lg={4}>
             <QuoteFormTemp
                 value={this.props.value}
                 optionStage={this.props.optionStage}
@@ -50,7 +50,7 @@ class Navbar extends Component {
           </Col>
         </Row>
         <Row className="show-grid" middle="xs" >
-          <Col xs={12} sm={12} md={12} lg={12} xsOffset={0} >
+          <Col xs={12} sm={12} md={12} lg={12} xsOffset={10} >
             <button className='reset-button' onClick={this.props.reset}>RESET</button>
           </Col>
         </Row>

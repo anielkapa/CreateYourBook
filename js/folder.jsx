@@ -6,6 +6,8 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Button from 'react-bootstrap/lib/Button';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+//import Sendgrid from './sendgrid.env';
+//import * as helper from 'sendgrid/lib/helpers/mail/mail';
 
 
 class Formular extends Component {
@@ -91,12 +93,63 @@ class Formular extends Component {
       });
         return toEmail;
   }
+  sendMail = () =>{
+  //  const sg = require('sendgrid')(process.env.APP_SECRET);
+    const request = sg.emptyRequest({
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: {
+        personalizations: [
+        {
+          to: [
+            {
+              email: 'anielkapa@gmail.com'
+            }
+          ],
+          subject: 'Sending with SendGrid is Fun'
+        }
+      ],
+      from: {
+        email: 'test@example.com'
+      },
+      content: [
+        {
+          type: 'text/plain',
+          value: 'and easy to do anywhere, even with Node.js'
+        }
+      ]
+    }
+  });
+
+  // With promise
+  sg.API(request)
+    .then(function (response) {
+      console.log(response.statusCode);
+      console.log(response.body);
+      console.log(response.headers);
+    })
+    .catch(function (error) {
+      // error is an instance of SendGridError
+      // The full response is attached to error.response
+      console.log(error.response.statusCode);
+    });
+
+// With callback
+  sg.API(request, function (error, response) {
+    if (error) {
+      console.log('Error response received');
+    }
+    console.log(response.statusCode);
+    console.log(response.body);
+    console.log(response.headers);
+  });
+  }
   render(){
     return(
       <Row className="show-grid" between="xs">
       <Form inline onSubmit={this.onSubmit} method="post" action="/contact">
         <Row className="show-grid">
-          <Col xs={12} sm={6} md={4} lg={4}>
+          <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formInlineName">
               <ControlLabel >Company Name</ControlLabel>
               {' '}
@@ -119,7 +172,7 @@ class Formular extends Component {
             </FormGroup>
             {' '}
           </Col>
-          <Col xs={12} sm={6} md={4} lg={4}>
+          <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formControlsSelectMultiple">
               <ControlLabel >Quantity:how many notebooks?</ControlLabel>
               <FormControl componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>

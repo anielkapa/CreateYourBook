@@ -10,8 +10,16 @@ class Body extends Component {
   render(){
     return(
       <Grid fluid >
-        <Row className="show-grid" around="xs">
-          <Col xs={12} sm={4} md={4} lg={4}>
+        <Row className="show-grid" around="xs" middle="xs">
+          <Col xs={12} sm={12} md={8} lg={8}>
+            <Book
+              value={this.props.value}
+              onChange={this.props.onChange}
+              styleClass={this.props.styleClass}
+              choosen={this.props.choosen}
+              />
+          </Col>
+          <Col xs={12} sm={12} md={4} lg={4}>
           <Choose
             value={this.props.value}
             onChange={this.props.onChange}
@@ -21,14 +29,7 @@ class Body extends Component {
             update={this.props.update}
             choosen={this.props.choosen}/>
           </Col>
-          <Col xs={12} sm={8} md={8} lg={8}>
-            <Book
-              value={this.props.value}
-              onChange={this.props.onChange}
-              styleClass={this.props.styleClass}
-              choosen={this.props.choosen}
-              />
-          </Col>
+
           <Col xs={12} sm={12} md={12} lg={12} className="middle-section">
           <Navbar
             value={this.props.value}

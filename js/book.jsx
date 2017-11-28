@@ -8,22 +8,41 @@ class Book extends Component {
     super(props);
     this.state = {
       styleclass: "main",
-      choosen: ''
+      choosen: '',
+      branding: "",
+      spine: ""
     };
   }
   componentWillReceiveProps (nextProps){
     this.setState({styleclass: nextProps.styleClass, choosen: nextProps.choosen});
+    if(nextProps.choosen.spine ==="hardback"){
+      this.setState({spine:"hardback_crease"})
+    }
+    if(nextProps.choosen.spine ==="softback"){
+      this.setState({spine:""})
+    }
+    if(nextProps.choosen.branding ==="printed"){
+      this.setState({branding:"printed_logo"})
+    }
+    if(nextProps.choosen.branding ==="debossed"){
+      this.setState({branding:"debossed_logo"})
+    }
   }
   render(){
     return(
       <section>
-        <Row className="show-grid" middle="xs">
-          <Col xs={6} sm={4} md={4} lg={4}>
-            <div className={this.state.styleclass}></div>
-          </Col>
-          <Col xs={6} sm={8} md={8} lg={8} className="end-comment">
+        <Row className="show-grid" middle="xs" around="xs">
+          <Col xs={12} sm={12} md={7} lg={7} className="end-comment" style={{margin:"0 0 0 10px"}}>
             <div style={{textAlign:"center"}}>
               <h3>Look I'm {this.props.value} notebook!</h3>
+            </div>
+          </Col>
+          <Col xs={12} sm={12} md={4} lg={4}>
+            <div className="size">
+              <div className={this.state.styleclass} />
+              <div className={this.state.branding}/>
+              <div className={this.state.spine}/>
+              <div className='shadow'/>
             </div>
           </Col>
         </Row>
