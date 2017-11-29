@@ -19,7 +19,7 @@ class QuoteFormTemp extends Component {
     this.state = {
       optionStage: 1,
       choosen:'',
-      positionKeys: ["Book Type", "Size", "Spine", "Corners", "Branding"]
+      positionKeys: ["Book Type", "Size", "Spine", "Corners", "Branding", "Accessories"]
     };
   }
   componentWillReceiveProps(nextProps){
@@ -30,7 +30,7 @@ class QuoteFormTemp extends Component {
   }
   createForm = (element) =>{
     let valuesOfChoosen = Object.values(this.state.choosen);
-    if (this.state.optionStage === 6){
+    if (this.state.optionStage === 7){
       let lilist = this.state.positionKeys;
       let torender = lilist.map((element,index)=>{
         return (<tr key={index}><td>{element}</td><td>{valuesOfChoosen[index]}</td></tr>)
@@ -41,7 +41,7 @@ class QuoteFormTemp extends Component {
    }
   }
   showTopic = (element) =>{
-    if (this.state.optionStage === 6){
+    if (this.state.optionStage === 7){
       return (<th>Your Book Summary</th>);
     }else{
       return null;

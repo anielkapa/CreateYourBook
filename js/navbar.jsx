@@ -18,7 +18,7 @@ class Navbar extends Component {
     });
   }
   chooseButtons = () =>{
-    if (this.state.optionStage < 6){
+    if (this.state.optionStage < 7){
       return (
         <Col xs={8} sm={8} md={2} lg={2} xsOffset={10} >
           <button className="next-button"

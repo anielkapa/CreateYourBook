@@ -64,16 +64,41 @@ body {
   background-image: url("images/pu.jpg");
 }
 .hardcover_paper {
+    background-color: #f7f6f3;
+    /* IE9, iOS 3.2+ */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyYWRpYWxHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjcwLjcxMDY3ODExODY1NDc2JSI+PHN0b3Agc3RvcC1jb2xvcj0iI2YwZWVlOCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjZmVmZWZlIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMSIvPjwvcmFkaWFsR3JhZGllbnQ+PHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==);
+    /* Android 2.3- hack (needed for the actual radial gradient) */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyYWRpYWxHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjcwLjcxMDY3ODExODY1NDc2JSI+PHN0b3Agc3RvcC1jb2xvcj0iI2YwZWVlOCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjZmVmZWZlIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMSIvPjwvcmFkaWFsR3JhZGllbnQ+PHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==),
+        -webkit-gradient(radial, center center, 0, center center, 362,color-stop(0, rgb(240, 238, 232)),color-stop(1, rgb(254, 254, 254)));
+    /* Android 2.3 */
+    background-image: -webkit-repeating-radial-gradient(center center, ellipse farthest-corner,rgb(240, 238, 232) 0%,rgb(254, 254, 254) 100%);
+    /* IE10+ */
+    background-image: repeating-radial-gradient(ellipse farthest-corner at center center,rgb(240, 238, 232) 0%,rgb(254, 254, 254) 100%);
+    background-image: -ms-repeating-radial-gradient(center center, ellipse farthest-corner,rgb(240, 238, 232) 0%,rgb(254, 254, 254) 100%);
+}
+/* IE8- CSS hack */
+@media \0screen\,screen\9 {
+    .hardcover_paper {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff0eee8",endColorstr="#fffefefe",GradientType=0);
+    }
+}
+.printed_full-colour{
   background-image: url("images/print.jpg");
+}
+.printed_spot-colour{
+  background-color: white;
 }
 .hardcover_textile {
   background-image: url("images/textile.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .hardback{
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.hardback_crease{
+.hardback_spine{
   height: 245px;
   width:15px;
   position: absolute;
@@ -119,6 +144,42 @@ body {
   top: 15%;
   left: 25%;
   margin: 0px;
+}
+
+.band{
+  height: 245px;
+  width:10px;
+  position: absolute;
+  background-color: white;
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
+  z-index: 152;
+  background-image: url("images/elastickband.png");
+  top: 0%;
+  left: 85%;
+  margin: 0px;
+}
+.black_elastic{
+  background-color: black;
+}
+.grey_elastic{
+  background-color: grey;
+}
+.white_elastic{
+  background-color: white;
+}
+.blue_elastic{
+  background-color: darkblue;
+}
+.red_elastic{
+  background-color: darkred;
+}
+.yellow_elastic{
+  background-color: yellow;
+}
+.green_elastic{
+  background-color: darkgreen;
 }
 /**error in from validation style**/
 span.help-block{
@@ -219,7 +280,6 @@ span.help-block{
 }
 
 .pattern{
-
   border-radius: 5px;
   font-weight: bold;
   padding: 20px;

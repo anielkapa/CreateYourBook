@@ -75,7 +75,8 @@ class Main extends Component {
         size: '',
         spine: '',
         corners: '',
-        branding: ''
+        branding: '',
+        elastic: ''
       },
       styleclass: ""
     };
@@ -104,7 +105,7 @@ class Main extends Component {
     });
   }
   changeType =()=>{
-    let typeArr = ['bookType', 'size', 'spine', 'corners','branding'];
+    let typeArr = ['bookType', 'size', 'spine', 'corners','branding','elastic'];
     return typeArr[this.state.optionStage-1];
   }
   changeSelectedOption = (event) =>{
@@ -125,12 +126,13 @@ class Main extends Component {
       size: '',
       spine: '',
       corners: '',
-      branding: ''
+      branding: '',
+      elastic: ''
     };
     this.setState({
       optionStage: 1,
       choosen:defaultChoosen,
-      styleclass: 'main'
+      styleclass: 'main',
     });
   }
   render(){

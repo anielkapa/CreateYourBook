@@ -11,13 +11,14 @@ class Choose extends Component {
     super(props);
     this.state = {
       optionStage:1,
-      stageTitle:["Select Book Type", "Select Size", "Choose Spine", "Choose corners", "Select branding"],
+      stageTitle:["Select Book Type", "Select Size", "Choose Spine", "Choose corners", "Select branding", "Select elastic band"],
       stageAnswer:{
         bookType: ["select option", "hardcover pu", "hardcover paper", "hardcover textile"],
         size: ["select option","A6", "A5", "A4"],
         spine: ["select option","hardback", "softback"],
         corners: ["select option","straight", "half-rounded"],
-        branding: ["select option","printed", "debossed"]
+        branding: ["select option","printed full-colour", "printed spot-colour", "debossed"],
+        elastic: ["select option", "black", "white", "grey","blue", "red", "yellow", "green"]
       },
       choosen: this.props.choosen
     };
