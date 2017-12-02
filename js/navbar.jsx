@@ -7,15 +7,26 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 class Navbar extends Component {
   constructor(props){
     super(props);
-
     this.state = {
-      optionStage: ""
+      optionStage: "",
+      choosen: {}
     };
   }
   componentWillReceiveProps (nextProps){
     this.setState({
-      optionStage: nextProps.optionStage
+      optionStage: nextProps.optionStage,
+      choosen: nextProps.choosen
+
     });
+    console.log("navbar will receive props")
+  }
+  createEmailForm =()=>{
+    let valuesOfChoosen = Object.values(this.state.choosen);
+    let keysOfChoosen = Object.keys(this.state.choosen);
+      let toEmail = keysOfChoosen.map((element,index)=>{
+        return (<tr key={index}><td>{element}</td><td>{valuesOfChoosen[index]}</td></tr>)
+      });
+        return toEmail;
   }
   chooseButtons = () =>{
     if (this.state.optionStage < 7){
@@ -30,7 +41,8 @@ class Navbar extends Component {
         <Col xs={12} sm={12} md={8} lg={8}>
           <Formular
             optionStage={this.props.optionStage}
-            choosen={this.props.choosen}/>
+            createEmailForm={this.createEmailForm()}
+            reset={this.props.reset}/>
         </Col> );
     }
   }
@@ -58,5 +70,4 @@ class Navbar extends Component {
     );
   }
 }
-
 export default Navbar;

@@ -1,6 +1,6 @@
 const	path	=	require("path");
 module.exports = {
-  entry: "./js/app.jsx",
+  entry: ['whatwg-fetch', "./js/app.jsx"],
   output: {
     path: path.resolve("dist"),
     filename:	"./js/out.js"
@@ -21,5 +21,14 @@ module.exports = {
         include: /flexboxgrid/
       }
     ]
-  }
+  },
+  node: {
+    console: false,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
+  devServer: {
+   headers: { "Access-Control-Allow-Origin": "*" }
+ }
 }

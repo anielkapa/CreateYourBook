@@ -19,7 +19,7 @@ class QuoteFormTemp extends Component {
     this.state = {
       optionStage: 1,
       choosen:'',
-      positionKeys: ["Book Type", "Size", "Spine", "Corners", "Branding", "Accessories"]
+      positionKeys: ["Book Type", "Size", "Spine", "Corners", "Branding", "Elastic band colour"]
     };
   }
   componentWillReceiveProps(nextProps){

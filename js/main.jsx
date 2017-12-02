@@ -17,6 +17,7 @@ class Body extends Component {
               onChange={this.props.onChange}
               styleClass={this.props.styleClass}
               choosen={this.props.choosen}
+              optionStage={this.props.optionStage}
               />
           </Col>
           <Col xs={12} sm={12} md={4} lg={4}>
@@ -59,7 +60,7 @@ class Footer extends Component {
   render(){
     return(
       <div style={{margin:"20px"}}>
-        stage: {this.state.optionStage} of 6
+        stage: {this.state.optionStage} of 7
       </div>
     );
   }
