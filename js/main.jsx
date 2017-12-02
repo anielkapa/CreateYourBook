@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Navbar from './navbar.jsx';
 import Book from './book.jsx';
 import Choose from './choose.jsx';
+import Well from 'react-bootstrap/lib/Well';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
@@ -13,22 +14,17 @@ class Body extends Component {
         <Row className="show-grid" around="xs" middle="xs">
           <Col xs={12} sm={12} md={8} lg={8}>
             <Book
-              value={this.props.value}
-              onChange={this.props.onChange}
               styleClass={this.props.styleClass}
               choosen={this.props.choosen}
-              optionStage={this.props.optionStage}
+              generateText={this.props.generateText}
               />
           </Col>
           <Col xs={12} sm={12} md={4} lg={4}>
           <Choose
             value={this.props.value}
             onChange={this.props.onChange}
-            onClick={this.props.onClick}
             optionStage={this.props.optionStage}
-            type={this.props.type}
-            update={this.props.update}
-            choosen={this.props.choosen}/>
+          />
           </Col>
 
           <Col xs={12} sm={12} md={12} lg={12} className="middle-section">
@@ -50,7 +46,6 @@ class Footer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      stage: "main",
       optionStage : 1
     };
   }
@@ -59,10 +54,8 @@ class Footer extends Component {
   }
   render(){
     return(
-      <div style={{margin:"20px"}}>
-        stage: {this.state.optionStage} of 7
-      </div>
-    );
+      <Well bsSize="small">stage: {this.state.optionStage} of 7</Well>
+    )
   }
 }
 class Main extends Component {
@@ -116,6 +109,17 @@ class Main extends Component {
     let type = this.changeType();
     this.update(type, event.target.value);
     this.classAdd(type, event.target.value);
+    }
+  generateText = () =>{
+      if (this.state.selectedOption === ""){
+        return (`Let's create Your bespoke notebook! Make a choice and follow next steps to send us Your inquiry.`)
+      }else if (this.state.optionStage === 6){
+        return (`Look, my elastic band colour is... ${this.state.choosen.elastic}!`)
+      }else if (this.state.optionStage === 7){
+        return (`Well, here I am - your personal Notebook!`)
+      }else {
+        return (`Look I'm ${this.state.selectedOption} notebook!`)
+      }
   }
   showNextOption = (event) =>{
     this.setState({ optionStage: this.state.optionStage+1});
@@ -131,9 +135,10 @@ class Main extends Component {
       elastic: ''
     };
     this.setState({
+      selectedOption:"",
       optionStage: 1,
       choosen:defaultChoosen,
-      styleclass: 'main',
+      styleclass: 'main'
     });
   }
   render(){
@@ -148,11 +153,15 @@ class Main extends Component {
           reset={this.reset}
           styleClass={this.state.styleclass}
           classAdd={this.classAdd}
+          generateText={this.generateText}
           />
-        <Footer
-          value={this.state.selectedOption}
-          optionStage={this.state.optionStage}/>
-      </div>
+        <Row className="show-grid" >
+          <Col xsOffset={0} style={{marginLeft:"10px"}}>
+            <Footer
+              optionStage={this.state.optionStage}/>
+          </Col>
+      </Row>
+    </div>
     );
   }
 }

@@ -31,7 +31,7 @@ class Navbar extends Component {
   chooseButtons = () =>{
     if (this.state.optionStage < 7){
       return (
-        <Col xs={8} sm={8} md={2} lg={2} xsOffset={10} >
+        <Col xs={8} sm={8} md={2} lg={2} xsOffset={9} >
           <button className="next-button"
             onClick={this.props.onClick}>NEXT
           </button>
@@ -62,7 +62,7 @@ class Navbar extends Component {
           </Col>
         </Row>
         <Row className="show-grid" middle="xs" >
-          <Col xs={12} sm={12} md={12} lg={12} xsOffset={10} >
+          <Col xs={12} sm={12} md={12} lg={12} xsOffset={9} >
             <button className='reset-button' onClick={this.props.reset}>RESET</button>
           </Col>
         </Row>

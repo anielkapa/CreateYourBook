@@ -80,7 +80,7 @@ class Formular extends Component {
   render(){
     return(
       <Row className="show-grid" between="xs">
-      <Form inline onSubmit={this.onSubmit} method="POST" action="//formspree.io/anna.sobkowiak.poznan@gmail.com" >
+      <Form inline onSubmit={this.onSubmit} method="POST" >
         <Row className="show-grid">
           <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formInlineName">

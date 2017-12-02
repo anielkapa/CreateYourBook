@@ -22,7 +22,6 @@ class Choose extends Component {
         branding: ["select option","printed full-colour", "printed spot-colour", "debossed"],
         elastic: ["select option", "black", "white", "grey","blue", "red", "yellow", "green"]
       },
-      choosen: this.props.choosen,
       tooltipText: [
         "PU hardcover for soft-touch feeling, TEXTILE for natural look or simply PAPER? All materials are 'over-board'.",
         "A6 is 105x148mm size, A5 is 148x210mm size and A4 is 210x297mm size",
