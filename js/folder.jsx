@@ -6,7 +6,7 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Button from 'react-bootstrap/lib/Button';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
+const  email="//formspree.io/anna.sobkowiak.poznan@gmail.com";
 
 class Formular extends Component {
   constructor(props){
@@ -18,9 +18,6 @@ class Formular extends Component {
       quantity: [],
       errors: {}
     };
-  }
-  componentWillReceiveProps(nextProps){
-    console.log(nextProps)
   }
   quantityOption =() =>{
     let quantity = [100, 250, 500, 1000, 1500, 2500, 5000, 7500, 10000, 'other'];
@@ -66,21 +63,23 @@ class Formular extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    let errors = this.validate();
+    let errors = this.validate(e);
     if(Object.keys(errors).length !== 0) {
       this.setState({
         errors: errors
       });
-      return;
-    }
+      return false;
+    } else {
       this.setState({
         errors: ""
       });
+    this.props.reset();
+    }
   }
   render(){
     return(
       <Row className="show-grid" between="xs">
-      <Form inline onSubmit={this.onSubmit} method="POST" >
+      <Form inline onSubmit={this.onSubmit} method="POST" action="http://formspree.io/anna.sobkowiak.poznan@gmail.com" >
         <Row className="show-grid">
           <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formInlineName">
@@ -108,7 +107,7 @@ class Formular extends Component {
           <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formControlsSelectMultiple">
               <ControlLabel >Quantity:how many notebooks?</ControlLabel>
-              <FormControl componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>
+              <FormControl  name="quantity" componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>
                 <option value="select">select (multiple)</option>
                 {this.quantityOption()}
               </FormControl>
@@ -116,7 +115,7 @@ class Formular extends Component {
             </FormGroup>
 
             {' '}
-              <Button type="submit" value="Send" onClick={this.handleSubmit} onClick={this.props.reset}>
+              <Button type="submit" value="Send" onClick={this.handleSubmit} >
                 Send Your inquiry!
               </Button>
               {' '}

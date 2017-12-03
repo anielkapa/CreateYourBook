@@ -16,9 +16,7 @@ class Navbar extends Component {
     this.setState({
       optionStage: nextProps.optionStage,
       choosen: nextProps.choosen
-
     });
-    console.log("navbar will receive props")
   }
   createEmailForm =()=>{
     let valuesOfChoosen = Object.values(this.state.choosen);
@@ -40,8 +38,6 @@ class Navbar extends Component {
       return (
         <Col xs={12} sm={12} md={8} lg={8}>
           <Formular
-            optionStage={this.props.optionStage}
-            createEmailForm={this.createEmailForm()}
             reset={this.props.reset}/>
         </Col> );
     }
@@ -55,9 +51,7 @@ class Navbar extends Component {
           {' '}
           <Col xs={12} sm={12} md={4} lg={4}>
             <QuoteFormTemp
-                value={this.props.value}
                 optionStage={this.props.optionStage}
-                onClick={this.props.onClick}
                 choosen={this.props.choosen}/>
           </Col>
         </Row>

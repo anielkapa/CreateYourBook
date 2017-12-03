@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Main from './main.jsx';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron';
-import Breadcrumb from 'react-bootstrap/lib/Breadcrumb';
 
 document.addEventListener('DOMContentLoaded', function(){
     class Header extends Component {
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
     class App extends Component {
       render(){
         return(
-					<div >
+					<div style={{width:"100vw"}} >
 						<Header />
 						<Main />
 					</div>

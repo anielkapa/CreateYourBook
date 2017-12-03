@@ -1,3 +1,4 @@
+/**css reset, main settings, fonts**/
 * {
   margin: 0 auto;
 	padding: 0;
@@ -5,7 +6,6 @@
 	vertical-align: baseline;
   box-sizing: border-box;
 }
-
 @font-face {
   font-family: 'Raleway';
   src: url('fonts/Raleway-Regular.ttf');
@@ -13,7 +13,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body {
   font-family: 'Raleway', sans-serif;
   display: -webkit-box;
@@ -23,6 +22,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 /**Book styles**/
 .size{
   width: 185px;
@@ -52,7 +52,7 @@ body {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffa9a9a9",endColorstr="#ff5d5d5d",GradientType=0);
     }
 }
-
+/**shadow under the book **/
 .shadow{
   width: 190px;
   height:30px;
@@ -183,13 +183,13 @@ body {
 .green_elastic{
   background-color: darkgreen;
 }
+
 /**error in from validation style**/
 span.help-block{
   color: red;
 }
 
 /** Header**/
-
 .header-style{
   display: flex;
   align-items: center;
@@ -203,14 +203,8 @@ span.help-block{
   background-position: right;
   background-size: cover;
 }
-.book-section-style{
-  margin:10px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  color: rgba(183, 97, 5, 0.8);
-  }
+
+  /** orange wells**/
 .orange-color{
   background-color: rgba(185, 97, 5, 0.8);
   color: white;
@@ -218,6 +212,8 @@ span.help-block{
   font-weight: bold;
   padding: 20px;
 }
+
+/** buttons styling**/
 .next-button{
     background-color: white;
     border: 1px solid transparent;
@@ -239,7 +235,6 @@ span.help-block{
     white-space: nowrap;
     vertical-align: middle;
 }
-
 .reset-button{
   background-color: black;
   border: 1px solid transparent;
@@ -261,6 +256,15 @@ span.help-block{
   vertical-align: middle;
 }
 
+/** sections styling**/
+.book-section-style{
+  margin:10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  color: rgba(183, 97, 5, 0.8);
+  }
 .end-comment{
   border: 1px solid rgba(183, 97, 5, 0.3);
   border-radius: 5px;
@@ -279,7 +283,6 @@ span.help-block{
   padding: 10px 0  10px 0;
   border-radius: 5px;
 }
-
 .pattern{
   border-radius: 5px;
   font-weight: bold;

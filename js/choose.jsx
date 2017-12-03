@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import Tooltip from 'react-bootstrap/lib/Tooltip';
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
-
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class Choose extends Component {
   constructor(props){

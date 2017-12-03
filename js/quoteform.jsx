@@ -2,17 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Table from 'react-bootstrap/lib/Table';
 
-
-class FormCompany extends Component {
-  render(){
-    return(
-      <form>
-        My Company details
-      </form>
-    );
-  }
-}
-
 class QuoteFormTemp extends Component {
   constructor(props){
     super(props);
@@ -59,9 +48,7 @@ class QuoteFormTemp extends Component {
           <tbody>
             {this.createForm()}
           </tbody>
-
         </Table>
-
       </div>
     );
   }

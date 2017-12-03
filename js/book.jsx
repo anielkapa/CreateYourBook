@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Well from 'react-bootstrap/lib/Well';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class Book extends Component {

@@ -6,7 +6,6 @@ import Choose from './choose.jsx';
 import Well from 'react-bootstrap/lib/Well';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-
 class Body extends Component {
   render(){
     return(
@@ -29,10 +28,7 @@ class Body extends Component {
 
           <Col xs={12} sm={12} md={12} lg={12} className="middle-section">
           <Navbar
-            value={this.props.value}
-            onChange={this.props.onChange}
             onClick={this.props.onClick}
-            quoteFormArr={this.props.quoteFormArr}
             optionStage={this.props.optionStage}
             choosen={this.props.choosen}
             reset={this.props.reset}/>
@@ -42,6 +38,7 @@ class Body extends Component {
     );
   }
 }
+
 class Footer extends Component {
   constructor(props){
     super(props);
@@ -53,11 +50,16 @@ class Footer extends Component {
     this.setState({optionStage: nextProps.optionStage})
   }
   render(){
+    const style={
+      margin: "10px",
+      width: "100px"
+    }
     return(
-      <Well bsSize="small">stage: {this.state.optionStage} of 7</Well>
+      <Well bsSize="small" style={style}>stage: {this.state.optionStage} of 7</Well>
     )
   }
 }
+
 class Main extends Component {
   constructor(props){
     super(props);
@@ -155,12 +157,8 @@ class Main extends Component {
           classAdd={this.classAdd}
           generateText={this.generateText}
           />
-        <Row className="show-grid" >
-          <Col xsOffset={0} style={{marginLeft:"10px"}}>
-            <Footer
-              optionStage={this.state.optionStage}/>
-          </Col>
-      </Row>
+        <Footer
+          optionStage={this.state.optionStage}/>
     </div>
     );
   }
