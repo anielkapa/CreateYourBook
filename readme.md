@@ -18,7 +18,9 @@ Clone this repository```git -clone https://github.com/anielkapa/CreateYourBook.g
   "babel-preset-es2015": "^6.24.1",
   "babel-preset-react": "^6.24.1",
   "babel-preset-stage-2": "^6.24.1",
+  "css-loader": "^0.28.7",
   "react": "^15.4.0",
+  "style-loader": "^0.19.0",
   "webpack": "3.7.1",
   "webpack-dev-server": "^2.9.4"
 }
