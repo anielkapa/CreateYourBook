@@ -6,17 +6,17 @@ This is a simple, REACT based product config app too create bespoke notebook and
 Works perfect in your office (desktop) and "on-the-go" (mobile support from iphone6).
 
 ### Getting Started
-> Copy the README file for yourself and start editing! Clone the repository:
+Clone the repository link to your console:
 ```
 git -clone https://github.com/anielkapa/CreateYourBook.git
 ```
 
 ### Installing
->Install node.js environment. At the root of your project, run:
+Install node.js environment. At the root of your project, run:
 ```
 npm install
 ```
->Please check package.json devDependencies and install all packages in required version:
+Please check package.json devDependencies and install all packages in required version:
 ```
 "devDependencies": {
   "babel-core": "^6.26.0",
@@ -40,19 +40,19 @@ npm install
 ```
 
 ### Built With
-* React.js [React.js] (https://reactjs.org/) -  A JavaScript library for building user interfaces.
-* React-Bootstrap [React-Bootstrap] (https://react-bootstrap.github.io/) - The most popular front-end framework, rebuilt for React.
-* React-FlexBox-Grid [React-FlexBox-Grid] (https://roylee0704.github.io/react-flexbox-grid/) - Library for responsive FlexBox-Grid design. A set of React components that implement flexboxgrid.css.
+* [React.js](https://reactjs.org/) -  A JavaScript library for building user interfaces.
+* [React-Bootstrap](https://react-bootstrap.github.io/) - The most popular front-end framework, rebuilt for React.
+* [React-FlexBox-Grid](https://roylee0704.github.io/react-flexbox-grid/) - Library for responsive FlexBox-Grid design. A set of React components that implement flexboxgrid.css.
 * CSS3
 * HTML5
 * Webpack
 
 ### Author
-* Anna Sobkowiak (https://github.com/anielkapa)
+* [Anna Sobkowiak](https://github.com/anielkapa)
 
 ### License
 >This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ### Acknowledgments
-* Inspiration was BrandBook Buch Konfigurator (https://buch-konfigurator.brandbook.de/)
-* React-FlexBox-Grid by [roylee0704] (https://github.com/roylee0704)
+* Inspiration was [BrandBook Buch Konfigurator](https://buch-konfigurator.brandbook.de/)
+* React-FlexBox-Grid by [roylee0704](https://github.com/roylee0704)
