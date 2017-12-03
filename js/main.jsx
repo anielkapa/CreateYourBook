@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Navbar from './navbar.jsx';
 import Book from './book.jsx';
 import Choose from './choose.jsx';
+import Well from 'react-bootstrap/lib/Well';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
 
 class Body extends Component {
   render(){
@@ -13,29 +13,22 @@ class Body extends Component {
         <Row className="show-grid" around="xs" middle="xs">
           <Col xs={12} sm={12} md={8} lg={8}>
             <Book
-              value={this.props.value}
-              onChange={this.props.onChange}
               styleClass={this.props.styleClass}
               choosen={this.props.choosen}
+              generateText={this.props.generateText}
               />
           </Col>
           <Col xs={12} sm={12} md={4} lg={4}>
           <Choose
             value={this.props.value}
             onChange={this.props.onChange}
-            onClick={this.props.onClick}
             optionStage={this.props.optionStage}
-            type={this.props.type}
-            update={this.props.update}
-            choosen={this.props.choosen}/>
+          />
           </Col>
 
           <Col xs={12} sm={12} md={12} lg={12} className="middle-section">
           <Navbar
-            value={this.props.value}
-            onChange={this.props.onChange}
             onClick={this.props.onClick}
-            quoteFormArr={this.props.quoteFormArr}
             optionStage={this.props.optionStage}
             choosen={this.props.choosen}
             reset={this.props.reset}/>
@@ -45,11 +38,11 @@ class Body extends Component {
     );
   }
 }
+
 class Footer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      stage: "main",
       optionStage : 1
     };
   }
@@ -57,13 +50,16 @@ class Footer extends Component {
     this.setState({optionStage: nextProps.optionStage})
   }
   render(){
+    const style={
+      margin: "10px",
+      width: "100px"
+    }
     return(
-      <div style={{margin:"20px"}}>
-        stage: {this.state.optionStage} of 6
-      </div>
-    );
+      <Well bsSize="small" style={style}>stage: {this.state.optionStage} of 7</Well>
+    )
   }
 }
+
 class Main extends Component {
   constructor(props){
     super(props);
@@ -75,7 +71,8 @@ class Main extends Component {
         size: '',
         spine: '',
         corners: '',
-        branding: ''
+        branding: '',
+        elastic: ''
       },
       styleclass: ""
     };
@@ -90,8 +87,6 @@ class Main extends Component {
     this.setState({
       styleclass:newclass
     });
-     console.log(newclass)
-     console.log(value)
   }
   choosenTemp =(type,value) => {
     let choosenTemp = Object.assign({}, this.state.choosen);
@@ -104,7 +99,7 @@ class Main extends Component {
     });
   }
   changeType =()=>{
-    let typeArr = ['bookType', 'size', 'spine', 'corners','branding'];
+    let typeArr = ['bookType', 'size', 'spine', 'corners','branding','elastic'];
     return typeArr[this.state.optionStage-1];
   }
   changeSelectedOption = (event) =>{
@@ -114,6 +109,17 @@ class Main extends Component {
     let type = this.changeType();
     this.update(type, event.target.value);
     this.classAdd(type, event.target.value);
+    }
+  generateText = () =>{
+      if (this.state.selectedOption === ""){
+        return (`Let's create Your bespoke notebook! Make a choice and follow next steps to send us Your inquiry.`)
+      }else if (this.state.optionStage === 6){
+        return (`Look, my elastic band colour is... ${this.state.choosen.elastic}!`)
+      }else if (this.state.optionStage === 7){
+        return (`Well, here I am - your personal Notebook!`)
+      }else {
+        return (`Look I'm ${this.state.selectedOption} notebook!`)
+      }
   }
   showNextOption = (event) =>{
     this.setState({ optionStage: this.state.optionStage+1});
@@ -125,9 +131,11 @@ class Main extends Component {
       size: '',
       spine: '',
       corners: '',
-      branding: ''
+      branding: '',
+      elastic: ''
     };
     this.setState({
+      selectedOption:"",
       optionStage: 1,
       choosen:defaultChoosen,
       styleclass: 'main'
@@ -145,11 +153,11 @@ class Main extends Component {
           reset={this.reset}
           styleClass={this.state.styleclass}
           classAdd={this.classAdd}
+          generateText={this.generateText}
           />
         <Footer
-          value={this.state.selectedOption}
           optionStage={this.state.optionStage}/>
-      </div>
+    </div>
     );
   }
 }

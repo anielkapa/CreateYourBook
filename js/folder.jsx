@@ -6,9 +6,6 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Button from 'react-bootstrap/lib/Button';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-//import Sendgrid from './sendgrid.env';
-//import * as helper from 'sendgrid/lib/helpers/mail/mail';
-
 
 class Formular extends Component {
   constructor(props){
@@ -18,14 +15,8 @@ class Formular extends Component {
       name: '',
       email: '',
       quantity: [],
-      choosen: {},
       errors: {}
     };
-  }
-  componentWillReceiveProps(nextProps){
-    this.setState({
-      choosen: nextProps.choosen
-    })
   }
   quantityOption =() =>{
     let quantity = [100, 250, 500, 1000, 1500, 2500, 5000, 7500, 10000, 'other'];
@@ -71,83 +62,23 @@ class Formular extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    let errors = this.validate();
+    let errors = this.validate(e);
     if(Object.keys(errors).length !== 0) {
       this.setState({
         errors: errors
       });
-      return;
-    }
-    if (Object.keys(errors).length ===0){
+      return false;
+    } else {
       this.setState({
         errors: ""
       });
-      return this.createEmailForm();
+    this.props.reset();
     }
-  }
-  createEmailForm =()=>{
-    let valuesOfChoosen = Object.values(this.state.choosen);
-    let keysOfChoosen = Object.key(this.state.choosen);
-      let toEmail = keysOfChoosen.map((element,index)=>{
-        return (<tr key={index}><td>{element}</td><td>{valuesOfChoosen[index]}</td></tr>)
-      });
-        return toEmail;
-  }
-  sendMail = () =>{
-  //  const sg = require('sendgrid')(process.env.APP_SECRET);
-    const request = sg.emptyRequest({
-      method: 'POST',
-      path: '/v3/mail/send',
-      body: {
-        personalizations: [
-        {
-          to: [
-            {
-              email: 'anielkapa@gmail.com'
-            }
-          ],
-          subject: 'Sending with SendGrid is Fun'
-        }
-      ],
-      from: {
-        email: 'test@example.com'
-      },
-      content: [
-        {
-          type: 'text/plain',
-          value: 'and easy to do anywhere, even with Node.js'
-        }
-      ]
-    }
-  });
-
-  // With promise
-  sg.API(request)
-    .then(function (response) {
-      console.log(response.statusCode);
-      console.log(response.body);
-      console.log(response.headers);
-    })
-    .catch(function (error) {
-      // error is an instance of SendGridError
-      // The full response is attached to error.response
-      console.log(error.response.statusCode);
-    });
-
-// With callback
-  sg.API(request, function (error, response) {
-    if (error) {
-      console.log('Error response received');
-    }
-    console.log(response.statusCode);
-    console.log(response.body);
-    console.log(response.headers);
-  });
   }
   render(){
     return(
       <Row className="show-grid" between="xs">
-      <Form inline onSubmit={this.onSubmit} method="post" action="/contact">
+      <Form inline >
         <Row className="show-grid">
           <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formInlineName">
@@ -175,15 +106,14 @@ class Formular extends Component {
           <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formControlsSelectMultiple">
               <ControlLabel >Quantity:how many notebooks?</ControlLabel>
-              <FormControl componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>
+              <FormControl  name="quantity" componentClass="select" multiple onChange={this.handleQuantity} value={this.state.quantity}>
                 <option value="select">select (multiple)</option>
                 {this.quantityOption()}
               </FormControl>
               <span className="help-block">{this.state.errors.quantity}</span>
             </FormGroup>
-
             {' '}
-              <Button type="submit"  onClick={this.handleSubmit}>
+              <Button type="submit" value="Send" onClick={this.handleSubmit} >
                 Send Your inquiry!
               </Button>
               {' '}
