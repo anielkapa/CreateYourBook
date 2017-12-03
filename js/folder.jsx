@@ -73,13 +73,22 @@ class Formular extends Component {
       this.setState({
         errors: ""
       });
+    fetch(email,	{
+  		method:	'POST',
+      data: {message: "hello!"},
+      dataType: "json"
+      })
+      .then(	resp	=>	resp.json())
+      .then(	data	=>	{
+      		console.log(	"hello"		);
+      });
     this.props.reset();
     }
   }
   render(){
     return(
       <Row className="show-grid" between="xs">
-      <Form inline onSubmit={this.onSubmit} method="POST" action="http://formspree.io/anna.sobkowiak.poznan@gmail.com" >
+      <Form inline onSubmit={this.onSubmit}  >
         <Row className="show-grid">
           <Col xs={12} sm={12} md={4} lg={4}>
             <FormGroup controlId="formInlineName">
