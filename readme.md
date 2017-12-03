@@ -3,7 +3,7 @@ is a web-application that includes everything needed to configure the product.
 
 ### Overview
 This is a simple, REACT based product config app too create bespoke notebook and send inquiry form to supplier.
-Works perfect in your office (desktop) and "on-the-go" (mobile support from iphone6).
+Works perfect in your office (desktop) and "on-the-go" (mobile version; no support for iphone5).
 
 ### Getting Started
 Clone this repository```git -clone https://github.com/anielkapa/CreateYourBook.git```
