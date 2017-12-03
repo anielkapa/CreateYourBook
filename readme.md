@@ -47,3 +47,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ### Acknowledgments
 * Inspiration was [BrandBook Buch Konfigurator](https://buch-konfigurator.brandbook.de/)
 * React-FlexBox-Grid by [roylee0704](https://github.com/roylee0704)
+* Pictures from [FOTER](http://foter.com/)
+
+### Next steps
+* sending the form and summary via email,
+* adding more 'product-config stages',
+* enable to upload own logo,
+* adding 'previous step' button.
