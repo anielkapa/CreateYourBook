@@ -1,3 +1,4 @@
+/**css reset, main settings, fonts**/
 * {
   margin: 0 auto;
 	padding: 0;
@@ -5,7 +6,6 @@
 	vertical-align: baseline;
   box-sizing: border-box;
 }
-
 @font-face {
   font-family: 'Raleway';
   src: url('fonts/Raleway-Regular.ttf');
@@ -13,7 +13,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body {
   font-family: 'Raleway', sans-serif;
   display: -webkit-box;
@@ -23,6 +22,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 /**Book styles**/
 .size{
   width: 185px;
@@ -32,9 +32,10 @@ body {
 .main {
     width: 100%;
     height: 245px;
-    border: 0.5px solid lightgrey;
     margin-top: 20px;
-
+    -webkit-box-shadow: 2px 2px 16px 1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 2px 2px 16px 1px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 16px 1px rgba(0,0,0,0.4);
     background-color: #838383;
     /* IE9, iOS 3.2+ */
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIHN0b3AtY29sb3I9IiNhOWE5YTkiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzVkNWQ1ZCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjdnNnZykiIC8+PC9zdmc+);
@@ -51,29 +52,48 @@ body {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffa9a9a9",endColorstr="#ff5d5d5d",GradientType=0);
     }
 }
-
+/**shadow under the book **/
 .shadow{
-  width: 195px;
+  width: 190px;
   height:30px;
   background-image: url('images/shadow.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
+.hardcover_paper {
+    background-color: #f7f6f3;
+    /* IE9, iOS 3.2+ */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyYWRpYWxHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjcwLjcxMDY3ODExODY1NDc2JSI+PHN0b3Agc3RvcC1jb2xvcj0iI2YwZWVlOCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjZmVmZWZlIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMSIvPjwvcmFkaWFsR3JhZGllbnQ+PHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==);
+    /* Android 2.3- hack (needed for the actual radial gradient) */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyYWRpYWxHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjcwLjcxMDY3ODExODY1NDc2JSI+PHN0b3Agc3RvcC1jb2xvcj0iI2YwZWVlOCIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjZmVmZWZlIiBzdG9wLW9wYWNpdHk9IjEiIG9mZnNldD0iMSIvPjwvcmFkaWFsR3JhZGllbnQ+PHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI3ZzZ2cpIiAvPjwvc3ZnPg==),
+        -webkit-gradient(radial, center center, 0, center center, 362,color-stop(0, rgb(240, 238, 232)),color-stop(1, rgb(254, 254, 254)));
+    /* Android 2.3 */
+    background-image: -webkit-repeating-radial-gradient(center center, ellipse farthest-corner,rgb(240, 238, 232) 0%,rgb(254, 254, 254) 100%);
+    /* IE10+ */
+    background-image: repeating-radial-gradient(ellipse farthest-corner at center center,rgb(240, 238, 232) 0%,rgb(254, 254, 254) 100%);
+    background-image: -ms-repeating-radial-gradient(center center, ellipse farthest-corner,rgb(240, 238, 232) 0%,rgb(254, 254, 254) 100%);
+}
+/* IE8- CSS hack */
+@media \0screen\,screen\9 {
+    .hardcover_paper {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff0eee8",endColorstr="#fffefefe",GradientType=0);
+    }
+}
 .hardcover_pu {
   background-image: url("images/pu.jpg");
 }
-.hardcover_paper {
-  background-image: url("images/print.jpg");
-}
 .hardcover_textile {
   background-image: url("images/textile.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .hardback{
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.hardback_crease{
+.hardback_spine{
   height: 245px;
   width:15px;
   position: absolute;
@@ -82,6 +102,8 @@ body {
   background-repeat: repeat;
   z-index: 150;
   background-image: url("images/spine.png");
+  opacity: 0.5;
+  filter: alpha(opacity=50);
   top: 0%;
   left: -1%;
   margin: 0px;
@@ -120,13 +142,55 @@ body {
   left: 25%;
   margin: 0px;
 }
+.printed_full-colour{
+  background-image: url("images/print.jpg");
+}
+.printed_spot-colour{
+  background-color: white;
+}
+.band{
+  height: 245px;
+  width:10px;
+  position: absolute;
+  background-color: white;
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
+  z-index: 152;
+  background-image: url("images/elastickband.png");
+  top: 0%;
+  left: 85%;
+  margin: 0px;
+}
+.black_elastic{
+  background-color: black;
+}
+.grey_elastic{
+  background-color: grey;
+}
+.white_elastic{
+  background-color: white;
+}
+.blue_elastic{
+  background-color: darkblue;
+}
+.red_elastic{
+  background-color: darkred;
+}
+.yellow_elastic{
+  background-color: yellow;
+}
+.green_elastic{
+  background-color: darkgreen;
+}
+
 /**error in from validation style**/
 span.help-block{
-  color: red;
+  color: white;
+  font-weight: bold;
 }
 
 /** Header**/
-
 .header-style{
   display: flex;
   align-items: center;
@@ -140,22 +204,17 @@ span.help-block{
   background-position: right;
   background-size: cover;
 }
-.book-section-style{
-  margin:10px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  color: rgba(183, 97, 5, 0.8);
-  }
+
+  /** orange wells**/
 .orange-color{
   background-color: rgba(185, 97, 5, 0.8);
-
   color: white;
   border-radius: 5px;
   font-weight: bold;
   padding: 20px;
 }
+
+/** buttons styling**/
 .next-button{
     background-color: white;
     border: 1px solid transparent;
@@ -177,7 +236,6 @@ span.help-block{
     white-space: nowrap;
     vertical-align: middle;
 }
-
 .reset-button{
   background-color: black;
   border: 1px solid transparent;
@@ -199,6 +257,15 @@ span.help-block{
   vertical-align: middle;
 }
 
+/** sections styling**/
+.book-section-style{
+  margin:10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  color: rgba(183, 97, 5, 0.8);
+  }
 .end-comment{
   border: 1px solid rgba(183, 97, 5, 0.3);
   border-radius: 5px;
@@ -217,9 +284,7 @@ span.help-block{
   padding: 10px 0  10px 0;
   border-radius: 5px;
 }
-
 .pattern{
-
   border-radius: 5px;
   font-weight: bold;
   padding: 20px;
